@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/sse"
+    },
+    "gitlab": {
+      "command": "npx",
+      "args": ["-y", "@zereight/mcp-gitlab"],
+      "env": {
+        "GITLAB_API_URL": "${GITLAB_API_URL:-https://gitlab.com/api/v4}",
+        "GITLAB_PERSONAL_ACCESS_TOKEN": "${GITLAB_TOKEN}",
+        "GITLAB_READ_ONLY_MODE": "false",
+        "USE_PIPELINE": "true"
+      }
+    },
+    "sonarqube": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "-e", "SONARQUBE_TOKEN",
+        "-e", "SONARQUBE_URL",
+        "mcp/sonarqube"
+      ],
+      "env": {
+        "SONARQUBE_TOKEN": "${SONARQUBE_TOKEN}",
+        "SONARQUBE_URL": "${SONARQUBE_URL}"
+      }
+    }
+  }
+}

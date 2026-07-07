@@ -1,0 +1,22 @@
+{
+  "name": "claudeskills",
+  "owner": {
+    "name": "Siva Velicheti",
+    "email": "siva.velicheti@gmail.com"
+  },
+  "metadata": {
+    "description": "Internal Claude Code plugin marketplace: standards, workflows and guardrails for all developers",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "junior-dev-framework",
+      "source": "./plugins/junior-dev-framework",
+      "description": "Spec-driven Jira -> TDD -> GitLab MR workflow with enforcement hooks for developers new to Claude Code",
+      "version": "0.1.0",
+      "author": { "name": "Siva Velicheti" },
+      "keywords": ["workflow", "jira", "gitlab", "tdd", "sonar", "standards"],
+      "category": "workflow"
+    }
+  ]
+}

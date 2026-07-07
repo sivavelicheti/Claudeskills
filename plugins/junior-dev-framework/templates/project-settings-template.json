@@ -1,0 +1,18 @@
+{
+  "$comment": "Copy to <repo>/.claude/settings.json in each project adopting the framework. Auto-installs the plugin for everyone who opens the repo in Claude Code and pins baseline permissions.",
+  "extraKnownMarketplaces": {
+    "claudeskills": {
+      "source": { "source": "github", "repo": "sivavelicheti/Claudeskills" }
+    }
+  },
+  "enabledPlugins": { "junior-dev-framework@claudeskills": true },
+  "permissions": {
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git commit --no-verify*)",
+      "Read(./.env*)",
+      "Read(./**/secrets/**)"
+    ]
+  }
+}
