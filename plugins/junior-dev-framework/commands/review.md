@@ -13,8 +13,13 @@ approval — the human makes the merge decision.
 1. Locate the MR (GitLab MCP) and the spec `specs/<JIRA-ID>.md` on the source branch.
    Fetch the Jira ticket too and diff spec-vs-ticket: flag anything the spec quietly
    dropped or added relative to Jira.
-2. Delegate the deep pass to the `spec-compliance-reviewer` subagent with: the MR diff,
-   the spec path, and the plan path. It returns a verdict per requirement ID:
+2. **Invoke `superpowers:requesting-code-review`** for the general code-quality pass
+   (its reviewer subagent checks correctness, robustness and maintainability of the
+   diff on its own terms), and in parallel delegate the spec-compliance pass to the
+   `spec-compliance-reviewer` subagent with: the MR diff, the spec path, and the plan
+   path. If superpowers ships `dispatching-parallel-agents`, use it to fan the
+   requirement verification out — one verifier per group of requirements on large MRs.
+   The compliance pass returns a verdict per requirement ID:
    **implemented / partially implemented / missing / contradicts spec**, each with
    file:line evidence and the covering test.
 3. Independently check for **scope creep**: changes in the diff that map to no

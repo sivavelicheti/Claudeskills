@@ -7,11 +7,13 @@ packaged as installable plugins.
 
 | Plugin | What it does |
 |---|---|
-| [`junior-dev-framework`](plugins/junior-dev-framework/) | Enforced SDLC pipeline for developers new to Claude Code: Jira -> tight spec -> plan -> TDD implementation via subagents -> quality gate (format, lint, 100% changed-line coverage) -> GitLab MR -> pipeline/Duo/Sonar remediation loop -> spec-compliance review. Hooks block pushes that skipped the gates. |
+| [`junior-dev-framework`](plugins/junior-dev-framework/) | Enforced SDLC pipeline for developers new to Claude Code: Jira -> tight spec -> plan -> TDD implementation via subagents -> quality gate (format, lint, 100% changed-line coverage) -> GitLab MR -> pipeline/Duo/Sonar remediation loop -> spec-compliance review. Hooks block pushes that skipped the gates. Builds on [obra/superpowers](https://github.com/obra/superpowers) for the process discipline (strict TDD, plan quality, systematic debugging, evidence-based verification). |
 
 ## Install
 
 ```
+/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
 /plugin marketplace add sivavelicheti/Claudeskills
 /plugin install junior-dev-framework@claudeskills
 ```

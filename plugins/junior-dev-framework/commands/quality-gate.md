@@ -33,9 +33,14 @@ this gate passed on the exact commit being pushed.
      Exclusions require the developer's explicit OK, stated in the MR description.
 6. **Spec re-check**: re-read `specs/$1.md`; confirm every requirement ID has at least
    one test referencing it (test name or comment mentions R-id). List any orphans.
-7. **Stamp the gate** (this is what the push hook verifies):
+7. **Verification discipline — invoke `superpowers:verification-before-completion`**
+   before stamping: every claim in your report ("tests pass", "coverage 100%") must be
+   backed by command output you actually ran in THIS gate run — never from memory of an
+   earlier run, and never inferred. If superpowers is not installed, apply the same
+   rule manually: no evidence, no claim.
+8. **Stamp the gate** (this is what the push hook verifies):
    `mkdir -p .claude-workflow && git rev-parse HEAD > .claude-workflow/quality-gate-passed`
-8. Report: formatter result, lint result, test counts, coverage per changed file,
+9. Report: formatter result, lint result, test counts, coverage per changed file,
    requirement->test map. Next step: `/ship $1`.
 
 If ANY check cannot be run (no test runner found, no coverage tool), STOP and say so

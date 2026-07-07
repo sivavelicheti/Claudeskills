@@ -11,6 +11,10 @@ Jira ticket: **$1**
 1. Preconditions: clean tree, branch contains `$1`,
    `.claude-workflow/quality-gate-passed` contains the current HEAD sha
    (otherwise run `/quality-gate $1` first — the push hook will block you anyway).
+   Consult `superpowers:finishing-a-development-branch` for the pre-handoff checklist
+   (final full-suite run, no leftover debug artifacts, plan tasks all ticked) — but its
+   merge/cleanup options do NOT apply here: this workflow always ends in a GitLab MR,
+   never a local merge.
 2. Push: `git push -u origin <branch>`. On network failure retry up to 4 times with
    exponential backoff (2s, 4s, 8s, 16s). Never `--force` — if the remote rejects the
    push, show the developer why.

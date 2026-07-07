@@ -14,12 +14,19 @@ Jira ticket: **$1**
 
 ## Execution model — keep the orchestrator context lean
 
+**First, invoke the `superpowers:subagent-driven-development` and
+`superpowers:executing-plans` skills** and follow their process for driving the plan
+through subagents. The stage-specific rules below are the team's constraints layered on
+top; where superpowers is stricter, superpowers wins. If superpowers is not installed,
+say so and proceed with the rules below alone.
+
 You (the main conversation) are the **orchestrator**. You do not write tests or
 production code yourself. For each task in the plan, in order:
 
 1. Spawn the `test-engineer` subagent with ONLY: the task description, the requirement
    IDs it covers, and the relevant spec excerpt. It writes failing tests and reports
-   the test file paths and the failure output.
+   the test file paths and the failure output. (Its definition requires it to follow
+   `superpowers:test-driven-development` — RED first, always.)
 2. Run the tests yourself to confirm they FAIL for the right reason. A test that passes
    before implementation is invalid — send it back.
 3. Spawn the `tdd-implementer` subagent with ONLY: the failing test paths, the task

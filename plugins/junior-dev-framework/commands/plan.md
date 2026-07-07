@@ -18,7 +18,9 @@ Jira ticket: **$1**
 1. Delegate to the `planner` subagent: give it the spec path and ask for an
    implementation plan using `${CLAUDE_PLUGIN_ROOT}/templates/plan-template.md`.
    The planner explores the codebase itself; do not paste large amounts of code into
-   its prompt.
+   its prompt. The planner is required to follow the `superpowers:writing-plans` skill
+   (bite-sized steps, exact file paths, complete code direction, no ambiguity) — the
+   team template ADDS the traceability matrix on top of that discipline.
 2. Write the plan to `specs/$1.plan.md` with frontmatter `status: draft`.
 3. **Traceability check (the whole point of this framework):** the plan must contain a
    traceability matrix — every requirement ID from the spec (R1, R2, ...) maps to at

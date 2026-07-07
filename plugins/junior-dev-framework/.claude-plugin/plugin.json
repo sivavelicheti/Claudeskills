@@ -1,7 +1,7 @@
 {
   "name": "junior-dev-framework",
   "description": "Spec-driven development harness: Jira spec -> plan -> TDD implementation with subagents -> quality gate -> GitLab MR -> Sonar loop -> spec-compliance review",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Siva Velicheti",
     "email": "siva.velicheti@gmail.com"

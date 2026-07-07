@@ -3,9 +3,15 @@
   "extraKnownMarketplaces": {
     "claudeskills": {
       "source": { "source": "github", "repo": "sivavelicheti/Claudeskills" }
+    },
+    "superpowers-marketplace": {
+      "source": { "source": "github", "repo": "obra/superpowers-marketplace" }
     }
   },
-  "enabledPlugins": { "junior-dev-framework@claudeskills": true },
+  "enabledPlugins": {
+    "junior-dev-framework@claudeskills": true,
+    "superpowers@superpowers-marketplace": true
+  },
   "permissions": {
     "deny": [
       "Bash(git push --force*)",

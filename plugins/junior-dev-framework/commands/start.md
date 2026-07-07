@@ -23,3 +23,7 @@ Jira ticket: **$1**
 
 Never create a branch from a stale local default branch, and never reuse a branch from
 a merged MR — always restart from `origin/<default-branch>`.
+
+If the developer is working several tickets at once, offer the
+`superpowers:using-git-worktrees` skill instead of branch-switching, so each ticket
+gets an isolated working directory and in-flight state never bleeds across tickets.

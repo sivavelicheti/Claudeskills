@@ -39,28 +39,42 @@ Jira ticket ──/spec──▶ approved spec ──/start──▶ branch ─�
 | Templates | `templates/` | Spec + plan templates with traceability built in |
 | MCP servers | `.mcp.json` | Atlassian (Jira), GitLab, SonarQube |
 
+## Companion plugin: superpowers (required)
+
+This framework is designed to run on top of [obra/superpowers](https://github.com/obra/superpowers).
+Division of labour:
+
+- **superpowers = the HOW.** Process discipline as skills: `test-driven-development`
+  (strict RED/GREEN/REFACTOR), `writing-plans`, `executing-plans`,
+  `subagent-driven-development`, `systematic-debugging` (root-cause, no shotgun fixes),
+  `verification-before-completion` (no claim without fresh evidence),
+  `brainstorming`, `requesting-code-review` / `receiving-code-review`.
+- **junior-dev-framework = the WHAT and the GATES.** The Jira->spec->plan->MR pipeline,
+  the traceability requirements, the approval points, and the hooks that block pushes
+  which skipped any of it.
+
+Every stage command invokes the matching superpowers skill by name (see the table in
+`skills/sdlc-workflow/SKILL.md`), and the `test-engineer` / `tdd-implementer` /
+`planner` agents are required to load their skill as their first action. Commands
+degrade gracefully with inline fallback rules if superpowers is missing, but install
+it — that's where the process depth lives, and it's maintained upstream so the
+discipline improves without us editing this plugin.
+
 ## Installation
 
 Per developer:
 
 ```
+/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
 /plugin marketplace add sivavelicheti/Claudeskills
 /plugin install junior-dev-framework@claudeskills
 ```
 
-Per repository (recommended — zero-setup for every clone), commit this to
-`.claude/settings.json`:
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "claudeskills": {
-      "source": { "source": "github", "repo": "sivavelicheti/Claudeskills" }
-    }
-  },
-  "enabledPlugins": { "junior-dev-framework@claudeskills": true }
-}
-```
+Per repository (recommended — zero-setup for every clone), commit
+[`templates/project-settings-template.json`](templates/project-settings-template.json)
+as `.claude/settings.json` — it registers both marketplaces and enables both plugins
+for everyone who opens the repo.
 
 Org-wide enforcement (developers cannot disable it): put the same two keys in the
 **managed settings** file deployed by IT
