@@ -1,5 +1,9 @@
 # junior-dev-framework
 
+> **Developer? Read the [User Guide](../../docs/USER-GUIDE.md)** for setup and a
+> worked end-to-end ticket. This README covers what's in the plugin and how to roll
+> it out.
+
 A Claude Code plugin that turns the team SDLC into a guided, **enforced** pipeline:
 
 ```

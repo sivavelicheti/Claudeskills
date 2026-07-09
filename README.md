@@ -21,6 +21,9 @@ packaged as installable plugins.
 Or commit the plugin into a project for everyone via `.claude/settings.json` — see
 [`plugins/junior-dev-framework/templates/project-settings-template.json`](plugins/junior-dev-framework/templates/project-settings-template.json).
 
+**New to the workflow? Start with the [User Guide](docs/USER-GUIDE.md)** — setup,
+a worked end-to-end ticket, what the BLOCKED messages mean, and FAQ.
+
 ## Workflow at a glance
 
 | Step | Command | Who |
