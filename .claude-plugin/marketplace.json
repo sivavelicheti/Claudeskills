@@ -17,6 +17,15 @@
       "author": { "name": "Siva Velicheti" },
       "keywords": ["workflow", "jira", "gitlab", "tdd", "sonar", "standards"],
       "category": "workflow"
+    },
+    {
+      "name": "security-review",
+      "source": "./plugins/security-review",
+      "description": "Standards-based static security review: scan, map findings to OWASP/CWE/CVSS/ASVS/NIST/CIS/PCI/MITRE, generate reports, and plan/apply remediations with sample fixes",
+      "version": "0.1.0",
+      "author": { "name": "Siva Velicheti" },
+      "keywords": ["security", "sast", "owasp", "cwe", "cvss", "asvs", "remediation"],
+      "category": "security"
     }
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "name": "security-review",
+  "description": "Standards-based static security review: scans code, maps findings to OWASP/CWE/CVSS/ASVS/NIST/CIS/PCI/MITRE, generates reports, and produces remediation plans with sample fixes",
+  "version": "0.1.0",
+  "author": {
+    "name": "Siva Velicheti",
+    "email": "siva.velicheti@gmail.com"
+  },
+  "keywords": ["security", "sast", "owasp", "cwe", "cvss", "asvs", "nist", "pci-dss", "remediation"]
+}
