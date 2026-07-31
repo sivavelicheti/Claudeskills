@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "security-scan-mcp"
+version = "0.2.0"
+description = "MCP server exposing bounded security-scanning tools (Semgrep, osv-scanner, Gitleaks) with normalized, standards-mapped findings"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+security-scan-mcp = "security_scan_mcp.server:main"
+
+[tool.setuptools.packages.find]
+include = ["security_scan_mcp*"]
+
+[tool.setuptools.package-data]
+security_scan_mcp = ["crosswalk.json"]
